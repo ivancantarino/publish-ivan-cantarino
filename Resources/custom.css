@@ -1,0 +1,233 @@
+/* Swiftology.io inspired theme */
+
+/* CSS Custom Properties */
+:root {
+    --primary-accent: #8b6fb8;
+    --secondary-purple: #7a5ba3;
+    --dark-orange: #b8521a;
+    --secondary-orange: #a04617;
+    --border-color: #7e8c98;
+    --metadata-color: #7e8c98;
+    --code-background: #292a2f;
+    --type-color: #dabaff;
+    
+    /* Syntax highlighting colors */
+    --keyword-color: #ff79b2;
+    --type-color: #dabaff;
+    --string-color: #ff8170;
+    --number-color: #d9c97c;
+    --comment-color: #7e8c98;
+    --call-color: #78c2b4;
+    --property-color: #89c0b3;
+}
+
+/* Enhanced typography */
+body {
+    font-family: -apple-system, Helvetica, Arial, sans-serif !important;
+    font-size: 1.05em !important;
+    line-height: 1.5em !important;
+}
+
+.wrapper {
+    max-width: 900px !important;
+}
+
+/* Site name styling */
+.site-name {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+/* Enhanced navigation hover effects */
+nav li a {
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: white !important;
+}
+
+nav li a:hover {
+    background-color: rgba(139, 111, 184, 0.15);
+    color: var(--primary-accent) !important;
+}
+
+nav li a.selected {
+    background-color: var(--primary-accent) !important;
+    color: white !important;
+    text-decoration: none;
+}
+
+/* Enhanced code styling - Swiftology inspired */
+pre {
+    background-color: var(--code-background);
+    border: none;
+    border-radius: 12px;
+    padding: 24px;
+    overflow-x: auto;
+    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, 'Courier New', monospace;
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+code {
+    background-color: rgba(218, 186, 255, 0.15);
+    padding: 3px 6px;
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, 'Courier New', monospace;
+    font-size: 0.95em;
+    color: var(--type-color);
+    border: 1px solid rgba(218, 186, 255, 0.3);
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    font-size: 100%;
+    color: #ffffff;
+}
+
+/* Swiftology syntax highlighting */
+pre code .keyword { 
+    color: var(--keyword-color); 
+    font-weight: bold; 
+}
+
+pre code .type { 
+    color: var(--type-color); 
+    font-weight: 500; 
+}
+
+pre code .string { 
+    color: var(--string-color); 
+}
+
+pre code .number { 
+    color: var(--number-color); 
+}
+
+pre code .comment { 
+    color: var(--comment-color); 
+    font-style: italic; 
+}
+
+pre code .property { 
+    color: var(--property-color); 
+    font-weight: 500; 
+}
+
+pre code .dotAccess { 
+    color: var(--property-color); 
+}
+
+pre code .preprocessing { 
+    color: var(--number-color); 
+}
+
+pre code .call { 
+    color: var(--call-color); 
+}
+
+/* Enhanced headers */
+h1 {
+    font-size: 2em !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin-bottom: 24px !important;
+}
+
+h2 {
+    font-size: 1.5em !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 32px 0 16px 0 !important;
+}
+
+h3 {
+    font-size: 1.3em !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+}
+
+/* Enhanced links */
+a {
+    color: var(--primary-accent) !important;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--secondary-purple) !important;
+}
+
+/* Enhanced article styling */
+.item-list > li {
+    border-radius: 12px !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    border: 1px solid rgba(126, 140, 152, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.item-list > li:hover {
+    transform: translateY(-2px);
+}
+
+/* Tag styling */
+.tag-list li,
+.tag {
+    background: linear-gradient(135deg, var(--dark-orange), var(--secondary-orange)) !important;
+    color: #ffffff !important;
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.9em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    opacity: 0.9;
+}
+
+.tag-list li a,
+.tag a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --code-background: #292a2f;
+        --primary-accent: #a28bc7;
+        --secondary-purple: #9178b3;
+        --dark-orange: #c85e1c;
+        --secondary-orange: #b35419;
+    }
+    
+    body {
+        background-color: #282c35 !important;
+        color: #ffffff !important;
+    }
+    
+    nav li a:hover {
+        background-color: rgba(162, 139, 199, 0.15);
+    }
+    
+    nav li a.selected {
+        background-color: var(--primary-accent);
+        color: #ffffff !important;
+    }
+    
+    .item-list > li {
+        background-color: #3a3e47 !important;
+        border-color: rgba(126, 140, 152, 0.3);
+    }
+    
+    header {
+        background-color: #1f2329 !important;
+    }
+    
+    h1, h2, h3 {
+        color: #ffffff !important;
+    }
+}
