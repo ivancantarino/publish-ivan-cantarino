@@ -13,7 +13,7 @@ struct IvanCantarino: Website {
         // Add any custom metadata here
     }
 
-    var url = URL(string: "https://ivancantarino.com")!
+    var url = URL(string: "https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME")!
     var name = "Ivan Cantarino"
     var description = "Personal website and blog"
     var language: Language { .english }
@@ -230,8 +230,8 @@ private extension Node where Context == HTML.DocumentContext {
             },
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
-            .link(.rel(.stylesheet), .href("/styles.css"), .type("text/css")),
-            .link(.rel(.stylesheet), .href("/custom.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(site.url(for: Path("styles.css")).absoluteString), .type("text/css")),
+            .link(.rel(.stylesheet), .href(site.url(for: Path("custom.css")).absoluteString), .type("text/css")),
             .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
