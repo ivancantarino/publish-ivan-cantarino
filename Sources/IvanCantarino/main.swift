@@ -203,11 +203,7 @@ private extension Node where Context == HTML.BodyContext {
     static func footer<T: Website>(for site: T) -> Node {
         return .footer(
             .p(
-                .text("Generated using "),
-                .a(
-                    .text("Publish"),
-                    .href("https://github.com/johnsundell/publish")
-                )
+                .text("Copyright © Ivan Cantarino, 2025")                          
             ),
             .p(.a(
                 .text("RSS feed"),
