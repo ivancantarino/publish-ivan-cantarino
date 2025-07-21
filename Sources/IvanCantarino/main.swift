@@ -13,7 +13,7 @@ struct IvanCantarino: Website {
         // Add any custom metadata here
     }
 
-    var url = URL(string: "https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME")!
+    var url = URL(string: "https://ivancantarino.github.io/publish-ivan-cantarino/")!
     var name = "Ivan Cantarino"
     var description = "Personal website and blog"
     var language: Language { .english }
