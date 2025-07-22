@@ -13,7 +13,7 @@ struct IvanCantarino: Website {
         // Add any custom metadata here
     }
 
-    var url = URL(string: "https://ivancantarino.github.io/publish-ivan-cantarino/")!
+    var url = URL(string: "http://localhost:8080")!
     var name = "Ivan Cantarino"
     var description = "Personal website and blog"
     var language: Language { .english }
@@ -103,7 +103,7 @@ struct FoundationHTMLFactory<Site: Website>: HTMLFactory {
                             .li(
                                 .class("tag"),
                                 .a(
-                                    .href(context.site.url(for: tag).absoluteString),
+                                    .href(context.site.path(for: tag)),
                                     .text(tag.string)
                                 )
                             )
@@ -129,7 +129,7 @@ struct FoundationHTMLFactory<Site: Website>: HTMLFactory {
                     .a(
                         .class("browse-all"),
                         .text("Browse all tags"),
-                        .href(context.site.url(for: context.site.tagListPath).absoluteString)
+                        .href(context.site.tagListPath)
                     ),
                     .itemList(
                         for: context.items(
@@ -159,13 +159,13 @@ private extension Node where Context == HTML.BodyContext {
 
         return .header(
             .wrapper(
-                .a(.class("site-name"), .href(context.site.url.absoluteString), .text(context.site.name)),
+                .a(.class("site-name"), .href("/"), .text(context.site.name)),
                 .if(sectionIDs.count > 1,
                     .nav(
                         .ul(.forEach(sectionIDs) { section in
                             .li(.a(
                                 .class(section == selectedSection ? "selected" : ""),
-                                .href(context.site.url(for: context.sections[section]).absoluteString),
+                                .href(context.sections[section].path),
                                 .text(context.sections[section].title)
                             ))
                         })
@@ -181,7 +181,7 @@ private extension Node where Context == HTML.BodyContext {
             .forEach(items) { item in
                 .li(.article(
                     .h1(.a(
-                        .href(site.url(for: item).absoluteString),
+                        .href(item.path),
                         .text(item.title)
                     )),
                     .tagList(for: item, on: site),
@@ -194,7 +194,7 @@ private extension Node where Context == HTML.BodyContext {
     static func tagList<T: Website>(for item: Item<T>, on site: T) -> Node {
         return .ul(.class("tag-list"), .forEach(item.tags) { tag in
             .li(.a(
-                .href(site.url(for: tag).absoluteString),
+                .href(site.path(for: tag)),
                 .text(tag.string)
             ))
         })
@@ -207,7 +207,7 @@ private extension Node where Context == HTML.BodyContext {
             ),
             .p(.a(
                 .text("RSS feed"),
-                .href(site.url(for: Path("feed.rss")).absoluteString)
+                .href("/feed.rss")
             ))
         )
     }
@@ -229,10 +229,10 @@ private extension Node where Context == HTML.DocumentContext {
                 .socialImageLink(site.url(for: path))
             },
             .viewport(.accordingToDevice),
-            .link(.rel(.shortcutIcon), .href(site.url(for: Path("images/favicon.png")).absoluteString), .type("image/png")),
+            .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(site.url(for: Path("styles.css")).absoluteString), .type("text/css")),
             .link(.rel(.stylesheet), .href(site.url(for: Path("custom.css")).absoluteString), .type("text/css")),
-            .link(.rel(.alternate), .href(site.url(for: Path("feed.rss")).absoluteString), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
+            .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
 }

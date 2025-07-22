@@ -36,6 +36,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-spm-
           
+    - name: Configure for GitHub Pages
+      run: |
+        sed -i '' 's|http://localhost:8080|https://ivancantarino.github.io/publish-ivan-cantarino/|g' Sources/IvanCantarino/main.swift
+        
     - name: Build and Generate Site
       run: swift run IvanCantarino
       

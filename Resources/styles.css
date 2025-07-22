@@ -1,0 +1,159 @@
+/**
+*  Foundation theme for Publish
+*  Copyright (c) John Sundell 2019
+*  MIT license, see LICENSE file for details
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    color: #000;
+    font-family: Helvetica, Arial;
+    text-align: center;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    text-align: left;
+}
+
+header {
+    background-color: #eee;
+    padding: 20px 0;
+}
+
+header .wrapper {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header .site-name {
+    font-size: 1.5em;
+    color: #000;
+    font-weight: bold;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 7px;
+    line-height: 1.5em;
+}
+
+nav a {
+    color: #000;
+}
+
+footer {
+    color: #8a8a8a;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: inherit;
+}
+
+.description {
+    font-style: italic;
+}
+
+.item-list {
+    list-style-type: none;
+}
+
+.item-list > li {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid #ececec;
+}
+
+.item-list > li:last-child {
+    border-bottom: none;
+}
+
+.item-list h1 {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.item-list p {
+    margin-bottom: 0;
+}
+
+.tag-list {
+    list-style-type: none;
+    display: inline;
+}
+
+.tag-list li {
+    display: inline;
+}
+
+.tag-list a,
+.tag {
+    background: #000;
+    color: #ddd;
+    padding: 4px 6px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.tag-list a:hover {
+    color: #white;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #222;
+        color: #ddd;
+    }
+
+    .item-list > li {
+        border-bottom: 1px solid #444;
+    }
+
+    header .site-name {
+        color: #ddd;
+    }
+
+    nav a {
+        color: #ddd;
+    }
+
+    .tag-list a,
+    .tag {
+        background: #333;
+        color: #ddd;
+    }
+
+    .tag-list a:hover {
+        color: #white;
+    }
+}
