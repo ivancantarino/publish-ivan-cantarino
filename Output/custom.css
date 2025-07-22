@@ -28,6 +28,13 @@ body {
     line-height: 1.5em !important;
 }
 
+/* Post titles styling */
+.item-list h1 a,
+.content h1,
+h1 {
+    color: #ffffff !important;
+}
+
 .wrapper {
     max-width: 900px !important;
 }
@@ -38,8 +45,9 @@ header .wrapper {
 }
 
 header nav {
-    display: inline-block;
-    margin-top: 15px;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* Site name styling */
@@ -203,7 +211,7 @@ ul.tag-list li a,
 .tag-list a,
 span.tag,
 .tag {
-    background: var(--primary-accent) !important;
+    background: var(--dark-orange) !important;
     color: #ffffff !important;
     padding: 4px 10px !important;
     border-radius: 6px !important;
@@ -219,7 +227,7 @@ ul.tag-list li a:hover,
 span.tag:hover,
 .tag:hover {
     opacity: 1 !important;
-    background: var(--secondary-purple) !important;
+    background: var(--secondary-orange) !important;
     color: #ffffff !important;
     transform: translateY(-1px);
 }
@@ -239,7 +247,7 @@ span.tag:hover,
     .tag-list a,
     span.tag,
     .tag {
-        background: var(--primary-accent) !important;
+        background: var(--dark-orange) !important;
         color: #ffffff !important;
     }
     
@@ -247,7 +255,7 @@ span.tag:hover,
     .tag-list a:hover,
     span.tag:hover,
     .tag:hover {
-        background: var(--secondary-purple) !important;
+        background: var(--secondary-orange) !important;
         color: #ffffff !important;
     }
     
