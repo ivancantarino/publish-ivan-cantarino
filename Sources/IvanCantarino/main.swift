@@ -217,6 +217,7 @@ private extension Node where Context == HTML.DocumentContext {
     static func head<T: Website>(for location: Location, on site: T) -> Node {
         let title = location.title.isEmpty ? site.name : "\(location.title) | \(site.name)"
         let description = location.description.isEmpty ? site.description : location.description
+        let isGitHubPages = site.url.absoluteString.contains("github.io")
 
         return .head(
             .encoding(.utf8),
@@ -229,10 +230,10 @@ private extension Node where Context == HTML.DocumentContext {
                 .socialImageLink(site.url(for: path))
             },
             .viewport(.accordingToDevice),
-            .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
-            .link(.rel(.stylesheet), .href(site.url(for: Path("styles.css")).absoluteString), .type("text/css")),
-            .link(.rel(.stylesheet), .href(site.url(for: Path("custom.css")).absoluteString), .type("text/css")),
-            .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
+            .link(.rel(.shortcutIcon), .href(isGitHubPages ? site.url(for: Path("images/favicon.png")).absoluteString : "/images/favicon.png"), .type("image/png")),
+            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("styles.css")).absoluteString : "/styles.css?v=2"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("custom.css")).absoluteString : "/custom.css?v=2"), .type("text/css")),
+            .link(.rel(.alternate), .href(isGitHubPages ? site.url(for: Path("feed.rss")).absoluteString : "/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
 }

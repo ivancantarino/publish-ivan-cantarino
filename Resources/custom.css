@@ -32,30 +32,47 @@ body {
     max-width: 900px !important;
 }
 
+/* Header alignment */
+header .wrapper {
+    text-align: center !important;
+}
+
+header nav {
+    display: inline-block;
+    margin-top: 15px;
+}
+
 /* Site name styling */
 .site-name {
     color: white !important;
     font-weight: bold !important;
 }
 
-/* Enhanced navigation hover effects */
+/* Enhanced navigation spacing and hover effects */
+nav li {
+    margin: 0 12px !important;
+}
+
 nav li a {
     padding: 8px 16px;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: all 0.2s ease;
     text-decoration: none;
     color: white !important;
+    font-weight: 500;
 }
 
 nav li a:hover {
-    background-color: rgba(139, 111, 184, 0.15);
-    color: var(--primary-accent) !important;
+    background-color: rgba(139, 111, 184, 0.2);
+    color: white !important;
+    transform: translateY(-1px);
 }
 
 nav li a.selected {
     background-color: var(--primary-accent) !important;
     color: white !important;
     text-decoration: none;
+    font-weight: 600;
 }
 
 /* Enhanced code styling - Swiftology inspired */
@@ -175,23 +192,36 @@ a:hover {
     transform: translateY(-2px);
 }
 
-/* Tag styling */
-.tag-list li,
-.tag {
-    background: linear-gradient(135deg, var(--dark-orange), var(--secondary-orange)) !important;
-    color: #ffffff !important;
-    padding: 6px 12px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    font-size: 0.9em;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    opacity: 0.9;
+/* Tag styling - override Foundation CSS */
+.tag-list li {
+    margin-right: 8px !important;
+    margin-bottom: 4px !important;
+    display: inline-block !important;
 }
 
-.tag-list li a,
-.tag a {
+ul.tag-list li a,
+.tag-list a,
+span.tag,
+.tag {
+    background: var(--primary-accent) !important;
     color: #ffffff !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    font-size: 0.85em !important;
     text-decoration: none !important;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+ul.tag-list li a:hover,
+.tag-list a:hover,
+span.tag:hover,
+.tag:hover {
+    opacity: 1 !important;
+    background: var(--secondary-purple) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
 }
 
 /* Dark mode enhancements */
@@ -202,6 +232,23 @@ a:hover {
         --secondary-purple: #9178b3;
         --dark-orange: #c85e1c;
         --secondary-orange: #b35419;
+    }
+    
+    /* Override Foundation dark mode for tags */
+    ul.tag-list li a,
+    .tag-list a,
+    span.tag,
+    .tag {
+        background: var(--primary-accent) !important;
+        color: #ffffff !important;
+    }
+    
+    ul.tag-list li a:hover,
+    .tag-list a:hover,
+    span.tag:hover,
+    .tag:hover {
+        background: var(--secondary-purple) !important;
+        color: #ffffff !important;
     }
     
     body {
