@@ -286,3 +286,37 @@ span.tag:hover,
         color: #ffffff !important;
     }
 }
+
+/* Comments Section Styling */
+.comments-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(126, 140, 152, 0.3);
+}
+
+.comments-section h2 {
+    color: #ffffff !important;
+    font-size: 1.5em !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Giscus theme integration */
+.giscus {
+    color-scheme: dark;
+}
+
+.giscus-frame {
+    border-radius: 12px;
+    border: 1px solid rgba(126, 140, 152, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    .comments-section {
+        border-color: rgba(126, 140, 152, 0.3);
+    }
+    
+    .comments-section h2 {
+        color: #ffffff !important;
+    }
+}

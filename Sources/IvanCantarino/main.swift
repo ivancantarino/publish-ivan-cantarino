@@ -69,7 +69,8 @@ struct FoundationHTMLFactory<Site: Website>: HTMLFactory {
                         .div(.class("content"), .contentBody(item.body)),
                         .span("Tagged with: "),
                         .tagList(for: item, on: context.site)
-                    )
+                    ),
+                    .commentsSection(for: item, on: context.site)
                 ),
                 .footer(for: context.site)
             )
@@ -214,6 +215,28 @@ private extension Node where Context == HTML.BodyContext {
             ))
         )
     }
+
+    static func commentsSection<T: Website>(for item: Item<T>, on site: T) -> Node {
+        return .div(.class("comments-section"),
+            .h2("Comments"),
+            .div(.id("giscus-comments")),
+            .script(.src("https://giscus.app/client.js"),
+                .attribute(named: "data-repo", value: "ivancantarino/publish-ivan-cantarino"),
+                .attribute(named: "data-repo-id", value: "R_kgDOPQa3AQ"),
+                .attribute(named: "data-category", value: "General"),
+                .attribute(named: "data-category-id", value: "DIC_kwDOPQa3Ac4CtSeS"),
+                .attribute(named: "data-mapping", value: "pathname"),
+                .attribute(named: "data-strict", value: "0"),
+                .attribute(named: "data-reactions-enabled", value: "1"),
+                .attribute(named: "data-emit-metadata", value: "1"),
+                .attribute(named: "data-input-position", value: "bottom"),
+                .attribute(named: "data-theme", value: "dark_dimmed"),
+                .attribute(named: "data-lang", value: "en"),
+                .attribute(named: "crossorigin", value: "anonymous"),
+                .attribute(named: "async", value: "")
+            )
+        )
+    }
 }
 
 private extension Node where Context == HTML.DocumentContext {
@@ -235,7 +258,7 @@ private extension Node where Context == HTML.DocumentContext {
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href(isGitHubPages ? site.url(for: Path("images/favicon.png")).absoluteString : "/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("styles.css")).absoluteString : "/styles.css?v=5"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("custom.css")).absoluteString : "/custom.css?v=6"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("custom.css")).absoluteString : "/custom.css?v=7"), .type("text/css")),
             .link(.rel(.alternate), .href(isGitHubPages ? site.url(for: Path("feed.rss")).absoluteString : "/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
