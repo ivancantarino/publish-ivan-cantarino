@@ -36,21 +36,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-spm-
           
-    - name: Configure for GitHub Pages
+    - name: Configure for production
       run: |
-        sed -i '' 's|http://localhost:8080|https://ivancantarino.github.io/publish-ivan-cantarino/|g' Sources/IvanCantarino/main.swift
+        # No need to modify URLs as they're already configured for custom domain
+        echo "Site already configured for custom domain www.ivancantarino.com"
         
     - name: Build and Generate Site
       run: swift run IvanCantarino
-      
-    - name: Fix paths for GitHub Pages
-      run: |
-        # Replace relative paths in HTML files to work with GitHub Pages subdirectory
-        find Output -name "*.html" -exec sed -i '' 's|href="/posts|href="/publish-ivan-cantarino/posts|g' {} \;
-        find Output -name "*.html" -exec sed -i '' 's|href="/about|href="/publish-ivan-cantarino/about|g' {} \;
-        find Output -name "*.html" -exec sed -i '' 's|href="/tags|href="/publish-ivan-cantarino/tags|g' {} \;
-        find Output -name "*.html" -exec sed -i '' 's|href="/feed.rss|href="/publish-ivan-cantarino/feed.rss|g' {} \;
-        find Output -name "*.html" -exec sed -i '' 's|href="/"|href="/publish-ivan-cantarino/"|g' {} \;
       
     - name: Setup Pages
       uses: actions/configure-pages@v4

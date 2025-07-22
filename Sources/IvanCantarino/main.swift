@@ -12,7 +12,14 @@ struct IvanCantarino: Website {
         // Add any custom metadata here
     }
 
-    var url = URL(string: "http://localhost:8080")!
+    var url: URL {
+        // Check if we're running in CI (production) or locally
+        if ProcessInfo.processInfo.environment["CI"] == "true" {
+            return URL(string: "https://www.ivancantarino.com")!
+        } else {
+            return URL(string: "http://localhost:8080")!
+        }
+    }
     var name = "Ivan Cantarino"
     var description = "Personal website and blog"
     var language: Language { .english }
@@ -243,7 +250,7 @@ private extension Node where Context == HTML.DocumentContext {
     static func head<T: Website>(for location: Location, on site: T) -> Node {
         let title = location.title.isEmpty ? site.name : "\(location.title) | \(site.name)"
         let description = location.description.isEmpty ? site.description : location.description
-        let isGitHubPages = site.url.absoluteString.contains("github.io")
+        let isLocalhost = site.url.absoluteString.contains("localhost")
 
         return .head(
             .encoding(.utf8),
@@ -256,10 +263,10 @@ private extension Node where Context == HTML.DocumentContext {
                 .socialImageLink(site.url(for: path))
             },
             .viewport(.accordingToDevice),
-            .link(.rel(.shortcutIcon), .href(isGitHubPages ? site.url(for: Path("images/favicon.png")).absoluteString : "/images/favicon.png"), .type("image/png")),
-            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("styles.css")).absoluteString : "/styles.css?v=5"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("custom.css")).absoluteString : "/custom.css?v=7"), .type("text/css")),
-            .link(.rel(.alternate), .href(isGitHubPages ? site.url(for: Path("feed.rss")).absoluteString : "/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
+            .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/styles.css?v=5" : "/styles.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=7" : "/custom.css"), .type("text/css")),
+            .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
 }
