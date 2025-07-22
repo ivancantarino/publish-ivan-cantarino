@@ -6,7 +6,6 @@ import SplashPublishPlugin
 struct IvanCantarino: Website {
     enum SectionID: String, WebsiteSectionID {
         case posts
-        case about
     }
 
     struct ItemMetadata: WebsiteItemMetadata {
@@ -160,15 +159,19 @@ private extension Node where Context == HTML.BodyContext {
         return .header(
             .wrapper(
                 .a(.class("site-name"), .href("/"), .text(context.site.name)),
-                .if(sectionIDs.count > 1,
-                    .nav(
-                        .ul(.forEach(sectionIDs) { section in
+                .nav(
+                    .ul(
+                        .forEach(sectionIDs) { section in
                             .li(.a(
                                 .class(section == selectedSection ? "selected" : ""),
                                 .href(context.sections[section].path),
                                 .text(context.sections[section].title)
                             ))
-                        })
+                        },
+                        .li(.a(
+                            .href("/about"),
+                            .text("About Me")
+                        ))
                     )
                 )
             )
