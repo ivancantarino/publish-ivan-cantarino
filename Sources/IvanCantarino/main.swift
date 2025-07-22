@@ -231,8 +231,8 @@ private extension Node where Context == HTML.DocumentContext {
             },
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href(isGitHubPages ? site.url(for: Path("images/favicon.png")).absoluteString : "/images/favicon.png"), .type("image/png")),
-            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("styles.css")).absoluteString : "/styles.css?v=3"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("custom.css")).absoluteString : "/custom.css?v=3"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("styles.css")).absoluteString : "/styles.css?v=5"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isGitHubPages ? site.url(for: Path("custom.css")).absoluteString : "/custom.css?v=6"), .type("text/css")),
             .link(.rel(.alternate), .href(isGitHubPages ? site.url(for: Path("feed.rss")).absoluteString : "/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }

@@ -90,7 +90,7 @@ pre {
     border-radius: 12px;
     padding: 24px;
     overflow-x: auto;
-    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, 'Courier New', monospace;
+    font-family: 'Menlo', Monaco, 'SF Mono', SFMono-Regular, ui-monospace, 'Source Code Pro', Consolas, 'Courier New', monospace;
     font-size: 1em;
     line-height: 1.5;
     margin: 20px 0;
@@ -100,7 +100,7 @@ code {
     background-color: rgba(218, 186, 255, 0.15);
     padding: 3px 6px;
     border-radius: 6px;
-    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, 'Courier New', monospace;
+    font-family: 'Menlo', Monaco, 'SF Mono', SFMono-Regular, ui-monospace, 'Source Code Pro', Consolas, 'Courier New', monospace;
     font-size: 0.95em;
     color: var(--type-color);
     border: 1px solid rgba(218, 186, 255, 0.3);
