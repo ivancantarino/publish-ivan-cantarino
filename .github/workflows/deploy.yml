@@ -43,6 +43,15 @@ jobs:
     - name: Build and Generate Site
       run: swift run IvanCantarino
       
+    - name: Fix paths for GitHub Pages
+      run: |
+        # Replace relative paths in HTML files to work with GitHub Pages subdirectory
+        find Output -name "*.html" -exec sed -i '' 's|href="/posts|href="/publish-ivan-cantarino/posts|g' {} \;
+        find Output -name "*.html" -exec sed -i '' 's|href="/about|href="/publish-ivan-cantarino/about|g' {} \;
+        find Output -name "*.html" -exec sed -i '' 's|href="/tags|href="/publish-ivan-cantarino/tags|g' {} \;
+        find Output -name "*.html" -exec sed -i '' 's|href="/feed.rss|href="/publish-ivan-cantarino/feed.rss|g' {} \;
+        find Output -name "*.html" -exec sed -i '' 's|href="/"|href="/publish-ivan-cantarino/"|g' {} \;
+      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
