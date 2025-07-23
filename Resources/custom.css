@@ -1,24 +1,37 @@
-/* Swiftology.io inspired theme */
+/* Swiftology.io inspired theme with Light/Dark Mode Support */
 
-/* CSS Custom Properties */
+/* Light Mode (Default) CSS Custom Properties */
 :root {
+    /* Theme colors */
     --primary-accent: #8b6fb8;
     --secondary-purple: #7a5ba3;
     --dark-orange: #b8521a;
     --secondary-orange: #a04617;
-    --border-color: #7e8c98;
-    --metadata-color: #7e8c98;
-    --code-background: #292a2f;
-    --type-color: #dabaff;
     
-    /* Syntax highlighting colors */
-    --keyword-color: #ff79b2;
-    --type-color: #dabaff;
-    --string-color: #ff8170;
-    --number-color: #d9c97c;
-    --comment-color: #7e8c98;
-    --call-color: #78c2b4;
-    --property-color: #89c0b3;
+    /* Light mode colors */
+    --text-color: #333333;
+    --heading-color: #2c3e50;
+    --background-color: #ffffff;
+    --header-background: #f8f9fa;
+    --border-color: #e1e8ed;
+    --metadata-color: #6c757d;
+    --card-background: #ffffff;
+    --card-border: #e1e8ed;
+    
+    /* Light mode code colors */
+    --code-background: #f8f9fa;
+    --inline-code-background: rgba(139, 111, 184, 0.1);
+    --inline-code-border: rgba(139, 111, 184, 0.2);
+    --inline-code-text: #8b6fb8;
+    
+    /* Light mode syntax highlighting */
+    --keyword-color: #d73a49;
+    --type-color: #6f42c1;
+    --string-color: #032f62;
+    --number-color: #005cc5;
+    --comment-color: #6a737d;
+    --call-color: #22863a;
+    --property-color: #005cc5;
 }
 
 /* Enhanced typography */
@@ -26,13 +39,20 @@ body {
     font-family: -apple-system, Helvetica, Arial, sans-serif !important;
     font-size: 1.05em !important;
     line-height: 1.5em !important;
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
 }
 
-/* Post titles styling */
+/* Headers styling */
 .item-list h1 a,
 .content h1,
-h1 {
-    color: #ffffff !important;
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color) !important;
+}
+
+/* Header styling */
+header {
+    background-color: var(--header-background) !important;
 }
 
 .wrapper {
@@ -52,7 +72,7 @@ header nav {
 
 /* Site name styling */
 .site-name {
-    color: white !important;
+    color: var(--heading-color) !important;
     font-weight: bold !important;
 }
 
@@ -66,13 +86,13 @@ nav li a {
     border-radius: 8px;
     transition: all 0.2s ease;
     text-decoration: none;
-    color: white !important;
+    color: var(--text-color) !important;
     font-weight: 500;
 }
 
 nav li a:hover {
-    background-color: rgba(139, 111, 184, 0.2);
-    color: white !important;
+    background-color: rgba(139, 111, 184, 0.15);
+    color: var(--primary-accent) !important;
     transform: translateY(-1px);
 }
 
@@ -86,7 +106,7 @@ nav li a.selected {
 /* Enhanced code styling - Swiftology inspired */
 pre {
     background-color: var(--code-background);
-    border: none;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 24px;
     overflow-x: auto;
@@ -97,13 +117,13 @@ pre {
 }
 
 code {
-    background-color: rgba(218, 186, 255, 0.15);
+    background-color: var(--inline-code-background);
     padding: 3px 6px;
     border-radius: 6px;
     font-family: 'Menlo', Monaco, 'SF Mono', SFMono-Regular, ui-monospace, 'Source Code Pro', Consolas, 'Courier New', monospace;
     font-size: 0.95em;
-    color: var(--type-color);
-    border: 1px solid rgba(218, 186, 255, 0.3);
+    color: var(--inline-code-text);
+    border: 1px solid var(--inline-code-border);
 }
 
 pre code {
@@ -112,7 +132,7 @@ pre code {
     border-radius: 0;
     border: none;
     font-size: 100%;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 /* Swiftology syntax highlighting */
@@ -160,21 +180,21 @@ pre code .call {
 h1 {
     font-size: 2em !important;
     font-weight: 800 !important;
-    color: #ffffff !important;
+    color: var(--heading-color) !important;
     margin-bottom: 24px !important;
 }
 
 h2 {
     font-size: 1.5em !important;
     font-weight: 700 !important;
-    color: #ffffff !important;
+    color: var(--heading-color) !important;
     margin: 32px 0 16px 0 !important;
 }
 
 h3 {
     font-size: 1.3em !important;
     font-weight: 600 !important;
-    color: #ffffff !important;
+    color: var(--heading-color) !important;
 }
 
 /* Enhanced links */
@@ -189,15 +209,17 @@ a:hover {
 
 /* Enhanced article styling */
 .item-list > li {
+    background-color: var(--card-background) !important;
     border-radius: 12px !important;
     padding: 24px !important;
     margin-bottom: 24px !important;
-    border: 1px solid rgba(126, 140, 152, 0.2);
-    transition: transform 0.2s ease;
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .item-list > li:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Tag styling - override Foundation CSS */
@@ -232,58 +254,44 @@ span.tag:hover,
     transform: translateY(-1px);
 }
 
-/* Dark mode enhancements */
+/* Dark Mode CSS Custom Properties */
 @media (prefers-color-scheme: dark) {
     :root {
-        --code-background: #292a2f;
+        /* Theme colors - slightly adjusted for dark mode */
         --primary-accent: #a28bc7;
         --secondary-purple: #9178b3;
         --dark-orange: #c85e1c;
         --secondary-orange: #b35419;
+        
+        /* Dark mode colors */
+        --text-color: #ffffff;
+        --heading-color: #ffffff;
+        --background-color: #282c35;
+        --header-background: #1f2329;
+        --border-color: rgba(126, 140, 152, 0.3);
+        --metadata-color: #7e8c98;
+        --card-background: #3a3e47;
+        --card-border: rgba(126, 140, 152, 0.3);
+        
+        /* Dark mode code colors */
+        --code-background: #292a2f;
+        --inline-code-background: rgba(218, 186, 255, 0.15);
+        --inline-code-border: rgba(218, 186, 255, 0.3);
+        --inline-code-text: #dabaff;
+        
+        /* Dark mode syntax highlighting */
+        --keyword-color: #ff79b2;
+        --type-color: #dabaff;
+        --string-color: #ff8170;
+        --number-color: #d9c97c;
+        --comment-color: #7e8c98;
+        --call-color: #78c2b4;
+        --property-color: #89c0b3;
     }
     
-    /* Override Foundation dark mode for tags */
-    ul.tag-list li a,
-    .tag-list a,
-    span.tag,
-    .tag {
-        background: var(--dark-orange) !important;
-        color: #ffffff !important;
-    }
-    
-    ul.tag-list li a:hover,
-    .tag-list a:hover,
-    span.tag:hover,
-    .tag:hover {
-        background: var(--secondary-orange) !important;
-        color: #ffffff !important;
-    }
-    
-    body {
-        background-color: #282c35 !important;
-        color: #ffffff !important;
-    }
-    
-    nav li a:hover {
-        background-color: rgba(162, 139, 199, 0.15);
-    }
-    
-    nav li a.selected {
-        background-color: var(--primary-accent);
-        color: #ffffff !important;
-    }
-    
-    .item-list > li {
-        background-color: #3a3e47 !important;
-        border-color: rgba(126, 140, 152, 0.3);
-    }
-    
-    header {
-        background-color: #1f2329 !important;
-    }
-    
-    h1, h2, h3 {
-        color: #ffffff !important;
+    /* Dark mode hover shadow */
+    .item-list > li:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
     }
 }
 
@@ -291,11 +299,11 @@ span.tag:hover,
 .comments-section {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(126, 140, 152, 0.3);
+    border-top: 1px solid var(--border-color);
 }
 
 .comments-section h2 {
-    color: #ffffff !important;
+    color: var(--heading-color) !important;
     font-size: 1.5em !important;
     font-weight: 700 !important;
     margin-bottom: 1.5rem !important;
@@ -303,20 +311,16 @@ span.tag:hover,
 
 /* Giscus theme integration */
 .giscus {
-    color-scheme: dark;
+    color-scheme: light;
 }
 
 .giscus-frame {
     border-radius: 12px;
-    border: 1px solid rgba(126, 140, 152, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 @media (prefers-color-scheme: dark) {
-    .comments-section {
-        border-color: rgba(126, 140, 152, 0.3);
-    }
-    
-    .comments-section h2 {
-        color: #ffffff !important;
+    .giscus {
+        color-scheme: dark;
     }
 }

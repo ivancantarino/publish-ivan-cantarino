@@ -237,7 +237,7 @@ private extension Node where Context == HTML.BodyContext {
                 .attribute(named: "data-reactions-enabled", value: "1"),
                 .attribute(named: "data-emit-metadata", value: "1"),
                 .attribute(named: "data-input-position", value: "bottom"),
-                .attribute(named: "data-theme", value: "dark_dimmed"),
+                .attribute(named: "data-theme", value: "preferred_color_scheme"),
                 .attribute(named: "data-lang", value: "en"),
                 .attribute(named: "crossorigin", value: "anonymous"),
                 .attribute(named: "async", value: "")
@@ -265,7 +265,7 @@ private extension Node where Context == HTML.DocumentContext {
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(isLocalhost ? "/styles.css?v=5" : "/styles.css"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=7" : "/custom.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=8" : "/custom.css"), .type("text/css")),
             .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
