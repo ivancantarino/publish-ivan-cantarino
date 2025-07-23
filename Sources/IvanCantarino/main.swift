@@ -268,7 +268,7 @@ private extension Node where Context == HTML.DocumentContext {
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(isLocalhost ? "/styles.css?v=5" : "/styles.css"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=9" : "/custom.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=10" : "/custom.css"), .type("text/css")),
             .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
