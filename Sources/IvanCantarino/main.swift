@@ -166,7 +166,10 @@ private extension Node where Context == HTML.BodyContext {
 
         return .header(
             .wrapper(
-                .a(.class("site-name"), .href("/"), .text(context.site.name)),
+                .a(.class("site-name-container"), .href("/"),
+                    .img(.src("/profile.PNG"), .alt("Ivan Cantarino"), .class("profile-image")),
+                    .span(.class("site-name"), .text(context.site.name))
+                ),
                 .nav(
                     .ul(
                         .forEach(sectionIDs) { section in
@@ -265,7 +268,7 @@ private extension Node where Context == HTML.DocumentContext {
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(isLocalhost ? "/styles.css?v=5" : "/styles.css"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=8" : "/custom.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=9" : "/custom.css"), .type("text/css")),
             .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
