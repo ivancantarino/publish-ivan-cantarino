@@ -1,10 +1,10 @@
 ---
 date: 2025-07-25 15:00
-description: State of AI
+description: State of Artifial Inteligence
 tags: ai, engineering
 ---
 
-# State of AI
+# State of Artifial Inteligence
 
 AI is here to stay, period. Unlike fleeting technologies that burst onto the scene, go viral, and disappear just as quickly, AI represents a fundamental shift that will become deeply integrated into our daily lives.
 
