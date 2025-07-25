@@ -40,9 +40,6 @@ struct FoundationHTMLFactory<Site: Website>: HTMLFactory {
             .body(
                 .header(for: context, selectedSection: nil),
                 .wrapper(
-                    .h1(.text(index.title)),
-                    .p(.class("description"), .text(context.site.description)),
-                    .h2("Latest content"),
                     .itemList(for: context.allItems(sortedBy: \.date, order: .descending), on: context.site)
                 ),
                 .footer(for: context.site)
@@ -166,9 +163,12 @@ private extension Node where Context == HTML.BodyContext {
 
         return .header(
             .wrapper(
-                .a(.class("site-name-container"), .href("/"),
-                    .img(.src("/profile.PNG"), .alt("Ivan Cantarino"), .class("profile-image")),
-                    .span(.class("site-name"), .text(context.site.name))
+                .div(.class("header-content"),
+                    .a(.class("site-name-container"), .href("/"),
+                        .img(.src("/profile.PNG"), .alt("Ivan Cantarino"), .class("profile-image")),
+                        .span(.class("site-name"), .text(context.site.name))
+                    ),
+                    .p(.class("site-tagline"), .text("Software engineer who promises the documentation is coming soon."))
                 ),
                 .nav(
                     .ul(
@@ -268,7 +268,7 @@ private extension Node where Context == HTML.DocumentContext {
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(isLocalhost ? "/styles.css?v=5" : "/styles.css"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=10" : "/custom.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=19" : "/custom.css"), .type("text/css")),
             .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }

@@ -12,7 +12,7 @@ Most of us have already interacted with GPT models like ChatGPT, Gemini, Grok, a
 
 These tools have proven incredibly valuable. I find myself turning to Google Search less frequently, and as a software engineer, Stack Overflow has become nearly obsolete (its decline since AI models launched speaks volumes). The ability to receive faster, more constructive responses is invaluable and saves countless hours.
 
-# What Should We Do?
+## What Should We Do?
 
 Fear is a powerful emotion—perhaps the strongest of all. The uncertainty about whether AI will eliminate our jobs and how we’ll earn a living in a world dominated by robots and AI agents can feel overwhelming.
 
