@@ -304,6 +304,27 @@ a:hover {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
+/* Post card link styling */
+.post-card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+}
+
+.post-card-link:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.post-card-link h1 {
+    color: var(--heading-color) !important;
+}
+
+.post-card-link:hover h1 {
+    color: var(--primary-accent) !important;
+    transition: color 0.2s ease;
+}
+
 /* Tag styling - override Foundation CSS */
 .tag-list li {
     margin-right: 8px !important;
@@ -311,10 +332,7 @@ a:hover {
     display: inline-block !important;
 }
 
-ul.tag-list li a,
-.tag-list a,
-span.tag,
-.tag {
+.tag-list .tag {
     background: var(--dark-orange) !important;
     color: #ffffff !important;
     padding: 4px 10px !important;
@@ -324,16 +342,7 @@ span.tag,
     text-decoration: none !important;
     opacity: 0.9;
     transition: all 0.2s ease;
-}
-
-ul.tag-list li a:hover,
-.tag-list a:hover,
-span.tag:hover,
-.tag:hover {
-    opacity: 1 !important;
-    background: var(--secondary-orange) !important;
-    color: #ffffff !important;
-    transform: translateY(-1px);
+    display: inline-block;
 }
 
 /* Dark Mode CSS Custom Properties */

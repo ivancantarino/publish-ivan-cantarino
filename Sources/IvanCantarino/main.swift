@@ -193,13 +193,11 @@ private extension Node where Context == HTML.BodyContext {
         return .ul(
             .class("item-list"),
             .forEach(items) { item in
-                .li(.article(
-                    .h1(.a(
-                        .href(item.path),
-                        .text(item.title)
-                    )),
-                    .tagList(for: item, on: site),
-                    .p(.text(item.description))
+                .li(.a(.class("post-card-link"), .href(item.path),
+                    .article(
+                        .h1(.text(item.title)),
+                        .tagList(for: item, on: site)
+                    )
                 ))
             }
         )
@@ -207,10 +205,7 @@ private extension Node where Context == HTML.BodyContext {
 
     static func tagList<T: Website>(for item: Item<T>, on site: T) -> Node {
         return .ul(.class("tag-list"), .forEach(item.tags) { tag in
-            .li(.a(
-                .href(site.path(for: tag)),
-                .text(tag.string)
-            ))
+            .li(.span(.class("tag"), .text(tag.string)))
         })
     }
 
@@ -268,7 +263,7 @@ private extension Node where Context == HTML.DocumentContext {
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(isLocalhost ? "/styles.css?v=5" : "/styles.css"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=19" : "/custom.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=21" : "/custom.css"), .type("text/css")),
             .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
