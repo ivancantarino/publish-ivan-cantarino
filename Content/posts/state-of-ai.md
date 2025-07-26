@@ -4,7 +4,7 @@ description: State of Artifial Inteligence
 tags: ai, engineering
 ---
 
-# State of Artifial Inteligence
+# State of Artificial Intelligence
 
 AI is here to stay.  Unlike fleeting technologies that burst onto the scene, go viral, and disappear just as quickly, AI represents a fundamental shift that will become deeply integrated into our daily lives.
 
