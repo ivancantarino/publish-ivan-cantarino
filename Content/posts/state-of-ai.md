@@ -1,6 +1,6 @@
 ---
 date: 2025-07-25 15:00
-description: State of Artifial Inteligence
+description: State of Artificial Intelligence
 tags: ai, engineering
 ---
 
