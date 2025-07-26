@@ -20,7 +20,7 @@ Let’s step back and examine our history.  During the Industrial Revolution of 
 
 The lesson here is clear: we must embrace change and leverage these tools to advance even further.
 
-I believe the next phase will involve a fusion of human capabilities and AI technology.  As we integrate AI more deeply into our daily routines, our productivity could increase exponentially—potentially by 1000%.
+I believe the next phase will involve a fusion of human capabilities and AI technology.  As we integrate AI more deeply into our daily routines, our productivity could increase exponentially—potentially by orders of magnitude.
 
 Consider a company with 100 software engineers.  If that company fully embraces AI, will it lay off 50 engineers and have the remaining 50 work alongside AI?  Or will it retain all 100 engineers and accomplish three years’ worth of planning in a single year?
 
