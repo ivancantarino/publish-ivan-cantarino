@@ -21,7 +21,7 @@ struct IvanCantarino: Website {
         }
     }
     var name = "Ivan Cantarino"
-    var description = "Personal website and blog"
+    var description = ""
     var language: Language { .english }
     var imagePath: Path? { nil }
 }
@@ -40,6 +40,9 @@ struct FoundationHTMLFactory<Site: Website>: HTMLFactory {
             .body(
                 .header(for: context, selectedSection: nil),
                 .wrapper(
+                    .h1(.text(index.title)),
+                    .p(.class("description"), .text(context.site.description)),
+                    .h2("Latest content"),
                     .itemList(for: context.allItems(sortedBy: \.date, order: .descending), on: context.site)
                 ),
                 .footer(for: context.site)
@@ -163,12 +166,9 @@ private extension Node where Context == HTML.BodyContext {
 
         return .header(
             .wrapper(
-                .div(.class("header-content"),
-                    .a(.class("site-name-container"), .href("/"),
-                        .img(.src("/profile.PNG"), .alt("Ivan Cantarino"), .class("profile-image")),
-                        .span(.class("site-name"), .text(context.site.name))
-                    ),
-                    .p(.class("site-tagline"), .text("Software engineer who promises the documentation is coming soon."))
+                .a(.class("site-name-container"), .href("/"),
+                    .img(.src("/profile.PNG"), .alt("Ivan Cantarino"), .class("profile-image")),
+                    .span(.class("site-name"), .text(context.site.name))
                 ),
                 .nav(
                     .ul(
@@ -193,11 +193,13 @@ private extension Node where Context == HTML.BodyContext {
         return .ul(
             .class("item-list"),
             .forEach(items) { item in
-                .li(.a(.class("post-card-link"), .href(item.path),
-                    .article(
-                        .h1(.text(item.title)),
-                        .tagList(for: item, on: site)
-                    )
+                .li(.article(
+                    .h1(.a(
+                        .href(item.path),
+                        .text(item.title)
+                    )),
+                    .tagList(for: item, on: site),
+                    .p(.text(item.description))
                 ))
             }
         )
@@ -205,7 +207,10 @@ private extension Node where Context == HTML.BodyContext {
 
     static func tagList<T: Website>(for item: Item<T>, on site: T) -> Node {
         return .ul(.class("tag-list"), .forEach(item.tags) { tag in
-            .li(.span(.class("tag"), .text(tag.string)))
+            .li(.a(
+                .href(site.path(for: tag)),
+                .text(tag.string)
+            ))
         })
     }
 
@@ -263,7 +268,7 @@ private extension Node where Context == HTML.DocumentContext {
             .viewport(.accordingToDevice),
             .link(.rel(.shortcutIcon), .href("/images/favicon.png"), .type("image/png")),
             .link(.rel(.stylesheet), .href(isLocalhost ? "/styles.css?v=5" : "/styles.css"), .type("text/css")),
-            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=21" : "/custom.css"), .type("text/css")),
+            .link(.rel(.stylesheet), .href(isLocalhost ? "/custom.css?v=10" : "/custom.css"), .type("text/css")),
             .link(.rel(.alternate), .href("/feed.rss"), .type("application/rss+xml"), .attribute(named: "title", value: "Subscribe to \(site.name)"))
         )
     }
