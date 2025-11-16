@@ -24,3 +24,5 @@ When I’m not architecting iOS applications, you’ll find me exploring creativ
 I’m always excited to discuss engineering topics overall, mostly iOS development , share insights about scalable mobile architecture, or any AI related topic. Whether you’re looking to collaborate on a project or just want to chat about the latest in iOS development, I’d love to hear from you.
 
 You can find me on [LinkedIn](https://www.linkedin.com/in/ivan-cantarino?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app).
+
+[Download my resumé](/resume_ivan_resume.pdf)
