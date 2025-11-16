@@ -71,7 +71,7 @@
 /* Enhanced typography */
 body {
     font-family: 'Charter', Georgia, 'Times New Roman', serif !important;
-    font-size: 1.05em !important;
+    font-size: 1.15em !important;
     line-height: 1.5em !important;
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
